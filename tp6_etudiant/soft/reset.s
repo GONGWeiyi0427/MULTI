@@ -18,6 +18,7 @@
 	.extern	seg_stack_base
 	.extern	seg_data_base
         .extern _isr_timer
+        .extern _isr_tty_get
         .extern _interrupt_vector
         .extern seg_timer_base
         .extern seg_icu_base
@@ -39,9 +40,12 @@ proc0:
         la      $27,    _interrupt_vector
         sw      $26,    8($27) # _interrupt_vector[2] <- _isr_timer
 
+        la      $26,    _isr_tty_get
+        sw      $26,    12($27)
+
         #initializes the ICU[0] MASK register
         la      $26,    seg_icu_base
-        li      $27,    0b0100
+        li      $27,    0b1100
         sw      $27,    8($26)
 
         # initializes TIMER[0] PERIOD and RUNNING registers
@@ -72,10 +76,13 @@ proc1:
         la      $27,    _interrupt_vector
         sw      $26,    16($27) # _interrupt_vector[4] <- _isr_timer
 
+        la      $26,    _isr_tty_get
+        sw      $26,    20($27)
+
         #initializes the ICU[1] MASK register
         la      $26,    seg_icu_base
         addiu   $26,    $26,    32
-        li      $27,    0b10000
+        li      $27,    0b110000
         sw      $27,    8($26)
 
         # initializes TIMER[1] PERIOD and RUNNING registers
@@ -83,7 +90,7 @@ proc1:
         addiu   $27,    $27,    0x10 # TIMER[1] 
         li      $26,    200000
         sw      $26,    0x8($27)
-        li      $26,    1
+        li      $26,    0
         sw      $26,    0x4($27)
 
         # initializes stack pointer for PROC[1]
