@@ -1,0 +1,286 @@
+
+main_bipro.o:     file format elf32-littlemips
+
+
+Disassembly of section .text:
+
+00000000 <producer>:
+   0:	27bdffd8 	addiu	sp,sp,-40
+   4:	afbf0024 	sw	ra,36(sp)
+   8:	afbe0020 	sw	s8,32(sp)
+   c:	03a0f025 	move	s8,sp
+  10:	2402000a 	li	v0,10
+  14:	afc20018 	sw	v0,24(s8)
+  18:	0c000000 	jal	0 <producer>
+  1c:	00000000 	nop
+  20:	00402825 	move	a1,v0
+  24:	3c020000 	lui	v0,0x0
+  28:	24440000 	addiu	a0,v0,0
+  2c:	0c000000 	jal	0 <producer>
+  30:	00000000 	nop
+  34:	afc00014 	sw	zero,20(s8)
+  38:	10000022 	b	c4 <producer+0xc4>
+  3c:	00000000 	nop
+  40:	afc00010 	sw	zero,16(s8)
+  44:	10000004 	b	58 <producer+0x58>
+  48:	00000000 	nop
+  4c:	8fc20010 	lw	v0,16(s8)
+  50:	24420001 	addiu	v0,v0,1
+  54:	afc20010 	sw	v0,16(s8)
+  58:	8fc30010 	lw	v1,16(s8)
+  5c:	8fc20018 	lw	v0,24(s8)
+  60:	0062102a 	slt	v0,v1,v0
+  64:	1440fff9 	bnez	v0,4c <producer+0x4c>
+  68:	00000000 	nop
+  6c:	10000001 	b	74 <producer+0x74>
+  70:	00000000 	nop
+  74:	3c020000 	lui	v0,0x0
+  78:	8c420000 	lw	v0,0(v0)
+  7c:	1440fffd 	bnez	v0,74 <producer+0x74>
+  80:	00000000 	nop
+  84:	3c020000 	lui	v0,0x0
+  88:	8fc30014 	lw	v1,20(s8)
+  8c:	ac430000 	sw	v1,0(v0)
+  90:	3c020000 	lui	v0,0x0
+  94:	24030001 	li	v1,1
+  98:	ac430000 	sw	v1,0(v0)
+  9c:	0000000f 	sync
+  a0:	8fc60018 	lw	a2,24(s8)
+  a4:	8fc50014 	lw	a1,20(s8)
+  a8:	3c020000 	lui	v0,0x0
+  ac:	24440034 	addiu	a0,v0,52
+  b0:	0c000000 	jal	0 <producer>
+  b4:	00000000 	nop
+  b8:	8fc20014 	lw	v0,20(s8)
+  bc:	24420001 	addiu	v0,v0,1
+  c0:	afc20014 	sw	v0,20(s8)
+  c4:	8fc20014 	lw	v0,20(s8)
+  c8:	28420032 	slti	v0,v0,50
+  cc:	1440ffdc 	bnez	v0,40 <producer+0x40>
+  d0:	00000000 	nop
+  d4:	0c000000 	jal	0 <producer>
+  d8:	00000000 	nop
+  dc:	00402825 	move	a1,v0
+  e0:	3c020000 	lui	v0,0x0
+  e4:	24440064 	addiu	a0,v0,100
+  e8:	0c000000 	jal	0 <producer>
+  ec:	00000000 	nop
+  f0:	0c000000 	jal	0 <producer>
+  f4:	00000000 	nop
+  f8:	00000000 	nop
+  fc:	03c0e825 	move	sp,s8
+ 100:	8fbf0024 	lw	ra,36(sp)
+ 104:	8fbe0020 	lw	s8,32(sp)
+ 108:	27bd0028 	addiu	sp,sp,40
+ 10c:	03e00008 	jr	ra
+ 110:	00000000 	nop
+
+00000114 <consumer>:
+ 114:	27bdffd8 	addiu	sp,sp,-40
+ 118:	afbf0024 	sw	ra,36(sp)
+ 11c:	afbe0020 	sw	s8,32(sp)
+ 120:	03a0f025 	move	s8,sp
+ 124:	240203e8 	li	v0,1000
+ 128:	afc20018 	sw	v0,24(s8)
+ 12c:	0c000000 	jal	0 <producer>
+ 130:	00000000 	nop
+ 134:	00402825 	move	a1,v0
+ 138:	3c020000 	lui	v0,0x0
+ 13c:	24440090 	addiu	a0,v0,144
+ 140:	0c000000 	jal	0 <producer>
+ 144:	00000000 	nop
+ 148:	afc00014 	sw	zero,20(s8)
+ 14c:	10000021 	b	1d4 <consumer+0xc0>
+ 150:	00000000 	nop
+ 154:	afc00010 	sw	zero,16(s8)
+ 158:	10000004 	b	16c <consumer+0x58>
+ 15c:	00000000 	nop
+ 160:	8fc20010 	lw	v0,16(s8)
+ 164:	24420001 	addiu	v0,v0,1
+ 168:	afc20010 	sw	v0,16(s8)
+ 16c:	8fc30010 	lw	v1,16(s8)
+ 170:	8fc20018 	lw	v0,24(s8)
+ 174:	0062102a 	slt	v0,v1,v0
+ 178:	1440fff9 	bnez	v0,160 <consumer+0x4c>
+ 17c:	00000000 	nop
+ 180:	10000001 	b	188 <consumer+0x74>
+ 184:	00000000 	nop
+ 188:	3c020000 	lui	v0,0x0
+ 18c:	8c420000 	lw	v0,0(v0)
+ 190:	1040fffd 	beqz	v0,188 <consumer+0x74>
+ 194:	00000000 	nop
+ 198:	3c020000 	lui	v0,0x0
+ 19c:	8c420000 	lw	v0,0(v0)
+ 1a0:	afc2001c 	sw	v0,28(s8)
+ 1a4:	3c020000 	lui	v0,0x0
+ 1a8:	ac400000 	sw	zero,0(v0)
+ 1ac:	0000000f 	sync
+ 1b0:	8fc60018 	lw	a2,24(s8)
+ 1b4:	8fc5001c 	lw	a1,28(s8)
+ 1b8:	3c020000 	lui	v0,0x0
+ 1bc:	244400c4 	addiu	a0,v0,196
+ 1c0:	0c000000 	jal	0 <producer>
+ 1c4:	00000000 	nop
+ 1c8:	8fc20014 	lw	v0,20(s8)
+ 1cc:	24420001 	addiu	v0,v0,1
+ 1d0:	afc20014 	sw	v0,20(s8)
+ 1d4:	8fc20014 	lw	v0,20(s8)
+ 1d8:	28420032 	slti	v0,v0,50
+ 1dc:	1440ffdd 	bnez	v0,154 <consumer+0x40>
+ 1e0:	00000000 	nop
+ 1e4:	0c000000 	jal	0 <producer>
+ 1e8:	00000000 	nop
+ 1ec:	00402825 	move	a1,v0
+ 1f0:	3c020000 	lui	v0,0x0
+ 1f4:	244400f0 	addiu	a0,v0,240
+ 1f8:	0c000000 	jal	0 <producer>
+ 1fc:	00000000 	nop
+ 200:	0c000000 	jal	0 <producer>
+ 204:	00000000 	nop
+ 208:	00000000 	nop
+ 20c:	03c0e825 	move	sp,s8
+ 210:	8fbf0024 	lw	ra,36(sp)
+ 214:	8fbe0020 	lw	s8,32(sp)
+ 218:	27bd0028 	addiu	sp,sp,40
+ 21c:	03e00008 	jr	ra
+ 220:	00000000 	nop
+
+Disassembly of section .reginfo:
+
+00000000 <.reginfo>:
+   0:	e000007c 	sc	zero,124(zero)
+	...
+
+Disassembly of section .MIPS.abiflags:
+
+00000000 <.MIPS.abiflags>:
+   0:	01200000 	0x1200000
+   4:	01000101 	0x1000101
+	...
+  10:	00000001 	movf	zero,zero,$fcc0
+  14:	00000000 	nop
+
+Disassembly of section .pdr:
+
+00000000 <.pdr>:
+   0:	00000000 	nop
+   4:	c0000000 	ll	zero,0(zero)
+   8:	fffffffc 	sdc3	$31,-4(ra)
+	...
+  14:	00000028 	0x28
+  18:	0000001e 	0x1e
+  1c:	0000001f 	0x1f
+  20:	00000000 	nop
+  24:	c0000000 	ll	zero,0(zero)
+  28:	fffffffc 	sdc3	$31,-4(ra)
+	...
+  34:	00000028 	0x28
+  38:	0000001e 	0x1e
+  3c:	0000001f 	0x1f
+
+Disassembly of section .sbss:
+
+00000000 <BUF>:
+   0:	00000000 	nop
+
+00000004 <SYNC>:
+   4:	00000000 	nop
+
+Disassembly of section .rodata:
+
+00000000 <.rodata>:
+   0:	202a2a2a 	addi	t2,at,10794
+   4:	72617453 	0x72617453
+   8:	676e6974 	0x676e6974
+   c:	73617420 	0x73617420
+  10:	7270206b 	0x7270206b
+  14:	6375646f 	0x6375646f
+  18:	6f207265 	0x6f207265
+  1c:	7270206e 	0x7270206e
+  20:	7365636f 	0x7365636f
+  24:	20726f73 	addi	s2,v1,28531
+  28:	2a206425 	slti	zero,s1,25637
+  2c:	0a0a2a2a 	j	828a8a8 <consumer+0x828a794>
+  30:	00000000 	nop
+  34:	6e617274 	0x6e617274
+  38:	74696d73 	jalx	1a5b5cc <consumer+0x1a5b4b8>
+  3c:	20646574 	addi	a0,v1,25972
+  40:	756c6176 	jalx	5b185d8 <consumer+0x5b184c4>
+  44:	203a2065 	addi	k0,at,8293
+  48:	20206425 	addi	zero,at,25637
+  4c:	74202020 	jalx	808080 <consumer+0x807f6c>
+  50:	6f706d65 	0x6f706d65
+  54:	61736972 	0x61736972
+  58:	6e6f6974 	0x6e6f6974
+  5c:	25203d20 	addiu	zero,t1,15648
+  60:	00000a64 	0xa64
+  64:	2a2a2a0a 	slti	t2,s1,10762
+  68:	6d6f4320 	0x6d6f4320
+  6c:	74656c70 	jalx	195b1c0 <consumer+0x195b0ac>
+  70:	20676e69 	addi	a3,v1,28265
+  74:	646f7270 	0x646f7270
+  78:	72656375 	0x72656375
+  7c:	20746120 	addi	s4,v1,24864
+  80:	6c637963 	0x6c637963
+  84:	64252065 	0x64252065
+  88:	2a2a2a20 	slti	t2,s1,10784
+  8c:	0000000a 	movz	zero,zero,zero
+  90:	202a2a2a 	addi	t2,at,10794
+  94:	72617453 	0x72617453
+  98:	676e6974 	0x676e6974
+  9c:	73617420 	0x73617420
+  a0:	6f63206b 	0x6f63206b
+  a4:	6d75736e 	0x6d75736e
+  a8:	6f207265 	0x6f207265
+  ac:	7270206e 	0x7270206e
+  b0:	7365636f 	0x7365636f
+  b4:	20726f73 	addi	s2,v1,28531
+  b8:	2a206425 	slti	zero,s1,25637
+  bc:	0a0a2a2a 	j	828a8a8 <consumer+0x828a794>
+  c0:	00000000 	nop
+  c4:	65636572 	0x65636572
+  c8:	64657669 	0x64657669
+  cc:	6c617620 	0x6c617620
+  d0:	3a206575 	xori	zero,s1,0x6575
+  d4:	20642520 	addi	a0,v1,9504
+  d8:	20202020 	addi	zero,at,8224
+  dc:	706d6574 	0x706d6574
+  e0:	7369726f 	0x7369726f
+  e4:	6f697461 	0x6f697461
+  e8:	203d206e 	addi	sp,at,8302
+  ec:	000a6425 	0xa6425
+  f0:	2a2a2a0a 	slti	t2,s1,10762
+  f4:	6d6f4320 	0x6d6f4320
+  f8:	74656c70 	jalx	195b1c0 <consumer+0x195b0ac>
+  fc:	20676e69 	addi	a3,v1,28265
+ 100:	736e6f63 	0x736e6f63
+ 104:	72656d75 	0x72656d75
+ 108:	20746120 	addi	s4,v1,24864
+ 10c:	6c637963 	0x6c637963
+ 110:	64252065 	0x64252065
+ 114:	2a2a2a20 	slti	t2,s1,10784
+ 118:	Address 0x0000000000000118 is out of bounds.
+
+
+Disassembly of section .ctors:
+
+00000000 <.ctors>:
+	...
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	c0	0x1434700
+   4:	4728203a 	c1	0x128203a
+   8:	2029554e 	addi	t1,at,21838
+   c:	2e322e38 	sltiu	s2,s1,11832
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .gnu.attributes:
+
+00000000 <.gnu.attributes>:
+   0:	00000f41 	0xf41
+   4:	756e6700 	jalx	5b99c00 <consumer+0x5b99aec>
+   8:	00070100 	sll	zero,a3,0x4
+   c:	01040000 	0x1040000
