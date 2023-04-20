@@ -169,9 +169,23 @@ __attribute__ ((constructor)) void consumer()
 
     tty_printf("\n*** Completing consumer at cycle %d ***\n", proctime());
 
+    int check = 1;
+    for(n = 0; n < NMAX; n++)
+    {
+        if(array[n] != n)
+        {
+            check = 0;
+        }
+    }
 
-
-
+    if(check == 1)
+    {
+        tty_printf("\n GOOD! \n");
+    }
+    else
+    {
+        tty_printf("\n BAD! \n");
+    }
 
 
     exit();
@@ -190,7 +204,7 @@ __attribute__ ((constructor)) void router()
     
     for(n = 0 ; n < NMAX ; n++) 
     { 
-        tempo = rand()>>6;
+        tempo = rand()>>8;
         fifo_read((fifo_t*)&fifo_1, &val);
         for(x = 0 ; x < tempo ; x++) asm volatile ("");
         fifo_write((fifo_t*)&fifo_2, &val);
